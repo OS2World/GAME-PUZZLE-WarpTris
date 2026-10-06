@@ -5,6 +5,8 @@ pieces dropping from the top, they appear in the middle of the game window and
 start falling towards one side of it, randomly, so lines can be made all around
 the window.
 
+![WarpTris ScreenShot](/doc/WarpTris.png)
+
 Originally written by Paulo Gago da Camara in 1996.
 
 ## Version
