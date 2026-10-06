@@ -1,0 +1,21 @@
+WarpTris 1.0 Source Code Readme File
+------------------------------------
+
+To compile this source, you must do the following:
+
+ o Compile the WarpTris.CPP file to WarpTris.OBJ
+ o Link the WarpTris.OBJ file with the MMPM2.LIB library, and specify that 
+   it's a PM program.
+ o Compile the resource file WarpTris.RC and bind it with the WarpTris.EXE  
+   file.
+
+Note: The stack size for WarpTris, should be about 32Kb.
+
+The way of acomplishing the above, depends on your compiler. 
+
+Paulo Gago da Camara
+pcamara@geocities.com
+
+
+
+

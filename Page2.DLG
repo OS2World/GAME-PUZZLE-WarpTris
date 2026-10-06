@@ -1,0 +1,21 @@
+/* Second page of the properties notebook */
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+
+DLGINCLUDE 2 "WarpTris.H"
+
+DLGTEMPLATE DID_PAGE2 LOADONCALL FIXED
+BEGIN
+    DIALOG  "", DID_PAGE2, 0, 0, 148, 84, NOT FS_DLGBORDER | WS_VISIBLE |
+            NOT WS_SAVEBITS
+
+    BEGIN
+        GROUPBOX        "Enabled Windows", 1501, 0, 0, 108, 73
+        AUTOCHECKBOX    "High Scores", DCB_HIGH, 12, 47, 75, 10
+        AUTOCHECKBOX    "Next", DCB_NEXT, 12, 36, 68, 10
+        AUTOCHECKBOX    "Score", DCB_SCORE, 12, 25, 73, 10
+        AUTOCHECKBOX    "Game", DCB_GAME, 12, 14, 86, 10
+    END
+END

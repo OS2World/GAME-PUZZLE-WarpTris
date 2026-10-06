@@ -1,0 +1,19 @@
+/* First page of the properties notebook */
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+DLGINCLUDE 1 "WarpTris.H"
+
+DLGTEMPLATE DID_PAGE1 LOADONCALL FIXED
+BEGIN
+    DIALOG  "", DID_PAGE1, 0, 7, 148, 84, NOT FS_DLGBORDER | WS_VISIBLE |
+            NOT WS_SAVEBITS
+
+    BEGIN
+
+        GROUPBOX        "Sound", 903, 0, 0, 108, 63
+        RADIOBUTTON     "On", DRB_ON, 22, 34, 39, 10, WS_TABSTOP
+        RADIOBUTTON     "Off", DRB_OFF, 22, 17, 39, 10, WS_TABSTOP
+    END
+END

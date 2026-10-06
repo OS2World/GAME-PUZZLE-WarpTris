@@ -1,0 +1,8 @@
+The complete source code for WarpTris 1.0
+-----------------------------------------
+ WarpTris is a Freeware, 32bit Multi-Threaded Tetris like game 
+for OS/2 Warp. Instead of pieces droping from top to bottom
+they appear at the middle of the game window, and then start
+falling towards on side of it randomly. This enables you to
+make lines all around the game window.
+ This is the source code for WarpTris!

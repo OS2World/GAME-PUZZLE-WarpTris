@@ -1,0 +1,26 @@
+/* Dialog that displays to get the players name when he makes an high score */
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+DLGINCLUDE 3 "WarpTris.H"
+
+DLGTEMPLATE DID_HIGHSCORE LOADONCALL MOVEABLE
+BEGIN
+    DIALOG  "Congratulations!", DID_HIGHSCORE, 97, 86, 152, 69, WS_VISIBLE,
+            FCF_TITLEBAR
+    PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+    BEGIN
+        GROUPBOX        "Please enter your name:", 5501, 3, 19, 146, 33
+        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        ENTRYFIELD      "", EID_NAME, 25, 29, 107, 8, NOT ES_AUTOSCROLL |
+                        ES_MARGIN
+        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CTEXT           "You have made a High Score entry!", 5503, 0, 54,
+                        152, 12, DT_VCENTER
+        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        DEFPUSHBUTTON   "~Enter", BID_ON1, 54, 3, 40, 14
+        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END

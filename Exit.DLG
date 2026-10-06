@@ -1,0 +1,32 @@
+/* This is the exit dialog */
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+
+DLGINCLUDE 6 "WarpTris.H"
+
+DLGTEMPLATE DID_EXIT 850 MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Exit WarpTris!", DID_EXIT, 142, 66, 154, 82, FS_NOBYTEALIGN |
+                FS_DLGBORDER | WS_CLIPSIBLINGS | WS_SAVEBITS | WS_VISIBLE,
+                FCF_TITLEBAR | FCF_SYSMENU
+    PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    BEGIN
+        CONTROL "~Yes",                 DID_OK, 23, 3, 38, 12, WC_BUTTON,
+                                            BS_PUSHBUTTON | BS_DEFAULT |
+                                            WS_GROUP | WS_TABSTOP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL BID_SMALLOGO,              DBI_EXIT, 10, 29, 133, 50, WC_STATIC,
+                                            SS_BITMAP | WS_GROUP | WS_VISIBLE | DT_CENTER
+        CONTROL "Do you really want to exit this Fine game ?", 987,
+                                        3, 18, 147, 8, WC_STATIC, SS_TEXT |
+                                            DT_CENTER | DT_VCENTER | WS_GROUP |
+                                            WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "~No",                  DID_CANCEL, 93, 3, 38, 12, WC_BUTTON,
+                                            BS_PUSHBUTTON | WS_TABSTOP |
+                                            WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END

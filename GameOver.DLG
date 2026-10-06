@@ -1,0 +1,27 @@
+/* Dialog that shows when the game is over */
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+DLGINCLUDE 5 "WarpTris.H"
+
+DLGTEMPLATE DID_GAMEOVER 850 MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Information", DID_GAMEOVER, 46, 79, 139, 72, FS_NOBYTEALIGN |
+                FS_BORDER | WS_CLIPSIBLINGS | WS_SAVEBITS | WS_VISIBLE,
+                FCF_TITLEBAR | FCF_SYSMENU
+    PRESPARAMS PP_BACKGROUNDCOLORINDEX, CLR_PALEGRAY
+    PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    BEGIN
+        CONTROL "~Ok",                  DID_OK, 15, 3, 38, 12, WC_BUTTON,
+                                            BS_PUSHBUTTON | BS_DEFAULT |
+                                            WS_GROUP | WS_TABSTOP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL DBT_BITMAP,            DBT_BITMAP, 3, 19, 133, 50, WC_STATIC,
+                                            SS_BITMAP | WS_GROUP | WS_VISIBLE | DT_CENTER
+        CONTROL "~New",                 DID_CANCEL, 78, 3, 38, 12, WC_BUTTON,
+                                            BS_PUSHBUTTON | WS_TABSTOP |
+                                            WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END

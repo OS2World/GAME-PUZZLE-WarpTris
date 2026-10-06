@@ -1,0 +1,24 @@
+/* Third page of the properties notebook */
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+
+DLGTEMPLATE 256 850 MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "", 256, -10, 1, 159, 89, NOT FS_DLGBORDER |
+                NOT WS_SAVEBITS | WS_VISIBLE
+    BEGIN
+        CONTROL "Impulse",             257, 0, 0, 108, 71, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+        CONTROL "Donkey",              DRB_DONKEY, 11, 44, 55, 10, WC_BUTTON,
+                                            BS_RADIOBUTTON | WS_TABSTOP |
+                                            WS_VISIBLE
+        CONTROL "Formula 1",           DRB_FORMULA1, 11, 30, 82, 10, WC_BUTTON,
+                                            BS_RADIOBUTTON | WS_TABSTOP |
+                                            WS_VISIBLE
+        CONTROL "WARP !",              DRB_WARP, 11, 16, 45, 10, WC_BUTTON,
+                                            BS_RADIOBUTTON | WS_TABSTOP |
+                                            WS_VISIBLE
+    END
+END

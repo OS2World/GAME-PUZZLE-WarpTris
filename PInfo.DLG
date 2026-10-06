@@ -1,0 +1,70 @@
+/* Product Information Dialog */
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+
+DLGINCLUDE 4 "warptris.h"
+
+DLGTEMPLATE DID_PINFO 850 MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Product Information", DID_PINFO, 38, 5, 283, 184, FS_NOBYTEALIGN |
+                FS_BORDER | WS_CLIPSIBLINGS | WS_SAVEBITS | WS_VISIBLE,
+                FCF_TITLEBAR | FCF_SYSMENU
+    PRESPARAMS PP_USER, "10.System Proportional"
+    BEGIN
+        CONTROL "",                    5535, 9, 25, 267, 154, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+        CONTROL BID_SMALLOGO,          BID_SMALLOGO, 75, 121, 133, 50,
+                                            WC_STATIC, SS_BITMAP | WS_GROUP |
+                                            WS_VISIBLE | DT_CENTER
+        CONTROL "WarpTris v1.0 is a 32 bit Multithreaded, Tetris like game for IBM OS/2 Warp*.",
+                                       5537, 11, 108, 259, 6, WC_STATIC,
+                                            SS_TEXT | DT_CENTER | DT_VCENTER |
+                                            WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_RED
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "  I made this game with the purpose of learning PM* programming. You are",
+                                       5540, 11, 98, 253, 6, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "encouraged to use and distribute it FREELY.", 5541,
+                                        11, 92, 253, 6, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "  Special thanks to my former C/C++ teacher, Dr.Gunther Funk, for the original idea.",
+                                       5543, 11, 82, 259, 6, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "  I also would like to thank my friend Jorge Cipriano, for his moral and technical",
+                                       5544, 12, 75, 257, 6, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "support, he was also the Alpha, Beta and Final version tester.",
+                                       5545, 11, 69, 259, 6, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "*IBM OS/2 Warp and PM are Trademarks of International Business Machines Corp.",
+                                       5546, 11, 30, 260, 6, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "(c) Paulo Gago da Cƒmara 1996.", 5547, 11, 54, 253, 6,
+                                            WC_STATIC, SS_TEXT | DT_VCENTER |
+                                            WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Azores, December 3rd 1996", 5549, 11, 47, 253, 6, WC_STATIC,
+                                            SS_TEXT | DT_VCENTER | WS_GROUP |
+                                            WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Please Read The Licence Agreement Section on the General Help.",
+                                       5550, 12, 37, 257, 7, WC_STATIC, SS_TEXT |
+                                            DT_VCENTER | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_RED
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "~Ok",                  DID_OK, 122, 6, 42, 14, WC_BUTTON,
+                                            BS_PUSHBUTTON | WS_TABSTOP |
+                                            WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END
