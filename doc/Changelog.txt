@@ -1,0 +1,40 @@
+WarpTris - Changelog
+====================
+
+1.20 (2026-10-06)
+- Ported the build to Open Watcom C++ 2.0 (wmake, wpp386, wlink, wrc, wipfc)
+- License changed to GNU GPL v3
+- The title bar of the main window shows only "WarpTris"
+- New project layout: src/, bin/, doc/, help/, sounds/, legacy/
+- New menu structure: Game / Options / Windows / Help (Impulse and Sound are in Options)
+- Game menu: New (Ctrl+N), Pause Game (Ctrl+P), Quit Game (Ctrl+Q), Exit (Ctrl+X)
+- The Game, Score, Next and High Scores windows and the Properties window are
+  twice as big
+- Options menu: Properties, Impulse, Sound, Detail (High/Medium/Low), Language,
+  Background Run (Ctrl+B), Frame Controls (Ctrl+F), Save settings on exit
+- Detail selects the piece appearance animation (smooth / original / none)
+- Six language user interface: English, Spanish, Dutch, German, French, Italian;
+  menus, window titles, dialogs, notebook and help switch at run time
+- Online help in six languages (help\WarpTris_xx.hlp, in the help folder next
+  to the exe), help menu with About dialog
+- Standard About dialog (Close button, no email address)
+- Main window opens at 1024x768, centered (or the whole screen if smaller);
+  the child windows are arranged in the middle of it
+- Pause also from the menu; the game stops when the Game window loses the
+  focus unless Background Run is on
+- Settings moved from the OS/2 profile (WarpTris.INI) to WarpTris.cfg
+- High scores moved to Hiscore.bin (name, score, level); names limited to 9
+  characters, an empty name becomes "Anon"
+- Sounds are loaded from the "sounds" folder next to WarpTris.exe; MMPM/2 is
+  loaded at run time, so the game starts without it
+- Exit (Ctrl+X) closes the game at once; closing the window still asks first
+- Either Shift key rotates the piece, besides keypad 5
+- The cursor keys can be used besides the keypad keys; a key press is no longer
+  handled twice (press and release)
+- The random generator is seeded, so every game starts differently
+- Fixed the logo window repainting and its bitmap handling
+- BLDLEVEL string added to the executable
+- Bug reports are no longer sent to the e-mail address of the original author
+
+1.00 (1996-12-03)
+- Original release by Paulo Gago da Camara
