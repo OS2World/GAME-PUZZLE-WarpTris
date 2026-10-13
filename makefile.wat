@@ -44,7 +44,7 @@ LFLAGS  = $(LFLAGS) option map=$(BINDIR)\$(NAME).map
 # Files
 # ============================================================================
 
-OBJS    = $(BINDIR)\WarpTris.obj $(BINDIR)\lang.obj
+OBJS    = $(BINDIR)\WarpTris.obj $(BINDIR)\lang.obj $(BINDIR)\keymap.obj
 ROBJ    = $(BINDIR)\$(NAME).res
 RCFILE  = $(SRCDIR)\$(NAME).rc
 DEFFILE = $(SRCDIR)\$(NAME).def
@@ -65,7 +65,7 @@ $(BINDIR)\help : $(BINDIR)
 
 $(BINDIR)\$(NAME).exe : $(OBJS) $(ROBJ) $(DEFFILE)
 	@echo Linking $(NAME).exe...
-	@$(LINK) $(LFLAGS) name $(BINDIR)\$(NAME).exe file $(BINDIR)\WarpTris.obj, $(BINDIR)\lang.obj library os2386.lib
+	@$(LINK) $(LFLAGS) name $(BINDIR)\$(NAME).exe file $(BINDIR)\WarpTris.obj, $(BINDIR)\lang.obj, $(BINDIR)\keymap.obj library os2386.lib
 	@echo Binding resources...
 	@$(RC) -q -bt=os2 $(ROBJ) $(BINDIR)\$(NAME).exe
 	@if exist $(BINDIR)\$(NAME).exe echo BUILD OK
@@ -74,13 +74,17 @@ $(BINDIR)\$(NAME).exe : $(OBJS) $(ROBJ) $(DEFFILE)
 # Objects
 # ============================================================================
 
-$(BINDIR)\WarpTris.obj : $(SRCDIR)\WarpTris.CPP $(SRCDIR)\warptris.h $(SRCDIR)\lang.h $(SRCDIR)\Board.H $(SRCDIR)\Figure.H $(SRCDIR)\Digital.H $(SRCDIR)\HighScore.H $(BINDIR)
+$(BINDIR)\WarpTris.obj : $(SRCDIR)\WarpTris.CPP $(SRCDIR)\warptris.h $(SRCDIR)\lang.h $(SRCDIR)\Board.H $(SRCDIR)\Figure.H $(SRCDIR)\Digital.H $(SRCDIR)\HighScore.H $(SRCDIR)\keymap.h $(BINDIR)
 	@echo Compiling src\WarpTris.CPP
 	@$(CCPP) $(CFLAGS) -fo=$@ $(SRCDIR)\WarpTris.CPP
 
 $(BINDIR)\lang.obj : $(SRCDIR)\lang.cpp $(SRCDIR)\lang.h $(BINDIR)
 	@echo Compiling src\lang.cpp
 	@$(CCPP) $(CFLAGS) -fo=$@ $(SRCDIR)\lang.cpp
+
+$(BINDIR)\keymap.obj : $(SRCDIR)\keymap.cpp $(SRCDIR)\keymap.h $(SRCDIR)\warptris.h $(SRCDIR)\lang.h $(SRCDIR)\joyos2.h $(BINDIR)
+	@echo Compiling src\keymap.cpp
+	@$(CCPP) $(CFLAGS) -fo=$@ $(SRCDIR)\keymap.cpp
 
 # ============================================================================
 # Resources

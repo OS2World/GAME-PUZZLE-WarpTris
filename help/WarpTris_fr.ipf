@@ -113,7 +113,7 @@ Vous ne pouvez deplacer votre piece que parallelement au cote vers lequel elle t
 :font facename=Helv size=8x12.
 :p.
 :i2 refid=HowTo.Touches de WarpTris
-Les touches valides pour ce jeu sont&colon.
+Les touches par defaut de ce jeu sont&colon.
 :parml compact tsize=20 break=none.
 :pt.Espace
 :pd.Faire tomber la piece
@@ -130,6 +130,8 @@ Les touches valides pour ce jeu sont&colon.
 :pt.P
 :pd.Pause / reprendre
 :eparml.
+:p.
+Choisissez :hp2.Affectation des touches...:ehp2. dans le menu :hp2.Options:ehp2. pour les changer. Chaque action a une touche et une touche alternative ; cliquez sur une case et appuyez sur la touche voulue (Suppr l'efface). Les touches de curseur, Maj, Debut, Fin, Page precedente, Page suivante, les lettres, les chiffres et Espace sont utilisables ; une touche deja utilisee est echangee avec l'autre action. La page :hp2.Joystick:ehp2. configure un joystick&colon. cochez Activer le joystick, choisissez Joystick A ou B, cliquez sur une case et appuyez sur un bouton du joystick ou bougez le manche (Suppr efface) et utilisez Calibrer A / B pour fixer le centre d'un manche. Le clavier et le joystick fonctionnent ensemble. Defaut restaure les reglages standard, OK enregistre les modifications et Annuler les abandonne.
 :p.
 Les raccourcis suivants fonctionnent partout dans la fenetre WarpTris&colon.
 :parml compact tsize=20 break=none.

@@ -113,7 +113,7 @@ Solo puede mover la pieza paralelamente al lado hacia el que cae.
 :font facename=Helv size=8x12.
 :p.
 :i2 refid=HowTo.Teclas de WarpTris
-Las teclas validas en este juego son&colon.
+Las teclas predeterminadas de este juego son&colon.
 :parml compact tsize=20 break=none.
 :pt.Espacio
 :pd.Dejar caer la pieza
@@ -130,6 +130,8 @@ Las teclas validas en este juego son&colon.
 :pt.P
 :pd.Pausa / continuar
 :eparml.
+:p.
+Elija :hp2.Asignacion de teclas...:ehp2. en el menu :hp2.Opciones:ehp2. para cambiarlas. Cada accion tiene una tecla y una tecla alternativa; haga clic en un cuadro y pulse la tecla que desee (Supr la borra). Se pueden usar las teclas de cursor, Mayus, Inicio, Fin, Re Pag, Av Pag, letras, digitos y Espacio; una tecla ya usada se intercambia con la otra accion. La pagina :hp2.Joystick:ehp2. configura un joystick&colon. active Activar joystick, elija Joystick A o B, haga clic en un cuadro y pulse un boton del joystick o mueva la palanca (Supr borra) y use Calibrar A / B para fijar el centro de la palanca. El teclado y el joystick funcionan a la vez. Por defecto restaura los ajustes estandar, Aceptar guarda los cambios y Cancelar los descarta.
 :p.
 Los atajos siguientes funcionan en toda la ventana de WarpTris&colon.
 :parml compact tsize=20 break=none.

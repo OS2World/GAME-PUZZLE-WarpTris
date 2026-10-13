@@ -11,7 +11,7 @@ Originally written by Paulo Gago da Camara in 1996.
 
 ## Version
 
-1.20
+1.30
 
 ## License
 
@@ -23,7 +23,8 @@ GNU General Public License v3 - see `doc/LICENSE.txt`
 - Three impulses (levels): Donkey, Formula 1, WARP!
 - High score table with name entry (`Hiscore.bin`)
 - 6-language UI: English, Spanish, Dutch, German, French, Italian
-- Rotate with keypad 5 or either Shift key
+- Key Mapping (Options - Key Mapping...): keyboard (a key and an alternate key for every action) and joystick (GAME$ driver, with calibration)
+- Default keys: cursor keys or keypad 4/6/8/2 to move, keypad 5 or either Shift key to rotate, Space to drop, P to pause
 - Online help in the six languages
 - Sound effects (OS/2 Multimedia, loaded at run time, optional)
 - Pause Game (Ctrl+P), Quit Game (Ctrl+Q), Exit (Ctrl+X)

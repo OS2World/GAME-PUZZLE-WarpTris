@@ -113,7 +113,7 @@ You can only move your piece parallel to the side it is falling to.
 :font facename=Helv size=8x12.
 :p.
 :i2 refid=HowTo.WarpTris Keys
-The valid keys for this game are&colon.
+The default keys for this game are&colon.
 :parml compact tsize=20 break=none.
 :pt.Space
 :pd.Drop piece
@@ -130,6 +130,8 @@ The valid keys for this game are&colon.
 :pt.P
 :pd.Pause / resume
 :eparml.
+:p.
+Choose :hp2.Key Mapping...:ehp2. from the :hp2.Options:ehp2. menu to change them. Every action has a key and an alternate key; click a box and press the key you want (Delete clears it). Cursor keys, Shift, Home, End, PgUp, PgDn, letters, digits and Space can be used; a key that is already in use is swapped with the other action. The :hp2.Joystick:ehp2. page sets up a joystick&colon. tick Enable Joystick, choose Joystick A or B, click a box and press a stick button or move the stick (Delete clears), and use Calibrate A / B to set the centre of a stick. The keyboard and the joystick work together. Default restores the standard settings, OK saves the changes and Cancel discards them.
 :p.
 The following shortcuts work everywhere in the WarpTris window&colon.
 :parml compact tsize=20 break=none.

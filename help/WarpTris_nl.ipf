@@ -113,7 +113,7 @@ U kunt uw stuk alleen verplaatsen parallel aan de kant waar het naartoe valt.
 :font facename=Helv size=8x12.
 :p.
 :i2 refid=HowTo.WarpTris toetsen
-De geldige toetsen voor dit spel zijn&colon.
+De standaardtoetsen voor dit spel zijn&colon.
 :parml compact tsize=20 break=none.
 :pt.Spatiebalk
 :pd.Stuk laten vallen
@@ -130,6 +130,8 @@ De geldige toetsen voor dit spel zijn&colon.
 :pt.P
 :pd.Pauze / doorgaan
 :eparml.
+:p.
+Kies :hp2.Toetsen toewijzen...:ehp2. in het menu :hp2.Opties:ehp2. om ze te wijzigen. Elke actie heeft een toets en een alternatieve toets; klik op een vak en druk op de gewenste toets (Delete wist). Cursortoetsen, Shift, Home, End, PgUp, PgDn, letters, cijfers en Spatie kunnen worden gebruikt; een toets die al in gebruik is wisselt van plaats met de andere actie. De pagina :hp2.Joystick:ehp2. stelt een joystick in&colon. vink Joystick gebruiken aan, kies Joystick A of B, klik op een vak en druk op een joystickknop of beweeg de stick (Delete wist) en gebruik Kalibreer A / B om het midden van een stick in te stellen. Toetsenbord en joystick werken samen. Standaard herstelt de standaardinstellingen, OK bewaart de wijzigingen en Annuleren verwerpt ze.
 :p.
 De volgende sneltoetsen werken overal in het WarpTris-venster&colon.
 :parml compact tsize=20 break=none.

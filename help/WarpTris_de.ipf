@@ -113,7 +113,7 @@ Sie koennen Ihren Stein nur parallel zu der Seite bewegen, zu der er faellt.
 :font facename=Helv size=8x12.
 :p.
 :i2 refid=HowTo.Tasten
-Die gueltigen Tasten fuer dieses Spiel sind&colon.
+Die Standardtasten fuer dieses Spiel sind&colon.
 :parml compact tsize=20 break=none.
 :pt.Leertaste
 :pd.Stein fallen lassen
@@ -130,6 +130,8 @@ Die gueltigen Tasten fuer dieses Spiel sind&colon.
 :pt.P
 :pd.Pause / fortsetzen
 :eparml.
+:p.
+Waehlen Sie :hp2.Tastenzuordnung...:ehp2. im Menue :hp2.Optionen:ehp2., um sie zu aendern. Jede Aktion hat eine Taste und eine alternative Taste; klicken Sie auf ein Feld und druecken Sie die gewuenschte Taste (Entf loescht). Cursortasten, Umschalt, Pos1, Ende, Bild auf, Bild ab, Buchstaben, Ziffern und die Leertaste sind moeglich; eine bereits belegte Taste wird mit der anderen Aktion getauscht. Die Seite :hp2.Joystick:ehp2. richtet einen Joystick ein&colon. Joystick aktivieren ankreuzen, Joystick A oder B waehlen, auf ein Feld klicken und eine Joystick-Taste druecken oder den Stick bewegen (Entf loescht) und mit A kalibrieren / B kalibrieren die Mitte eines Sticks festlegen. Tastatur und Joystick arbeiten zusammen. Standard stellt die Standardeinstellungen wieder her, OK speichert die Aenderungen und Abbrechen verwirft sie.
 :p.
 Die folgenden Tastenkombinationen funktionieren im gesamten WarpTris-Fenster&colon.
 :parml compact tsize=20 break=none.

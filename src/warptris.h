@@ -5,7 +5,7 @@
 #ifndef WARPTRIS_H
 #define WARPTRIS_H
 
-#define VERSION_STR "1.20"
+#define VERSION_STR "1.30"
 
 /* Bitmap resources */
 #define BID_ON1 1
@@ -57,6 +57,7 @@
 
 /* Options menu (200-299) */
 #define IDM_PROPERTIES 201
+#define IDM_KEYMAP 202
 #define IDM_HIGHDET 210
 #define IDM_MEDIUMDET 211
 #define IDM_LOWDET 212
@@ -112,6 +113,7 @@
 /* Timers */
 #define TID_TIMER (TID_USERMAX-1)
 #define TID_LOGO  (TID_USERMAX-2)
+#define TID_JOY   (TID_USERMAX-3)
 
 /* Private window messages */
 #define WM_VERIFY        (WM_USER+1)
@@ -178,6 +180,29 @@
 #define DST_PAGE2GROUP              1501
 #define DST_PAGE3GROUP              257
 #define DST_EXITTEXT                987
+
+/* Key Mapping dialog (keymap.cpp) */
+#define IDD_KEYMAP                  0xb000
+#define BN_KM_DEFAULTS              0xb007
+#define DLG_KM_KBD                  0xb100
+#define DLG_KM_JOY                  0xb101
+#define IDC_KM_NB                   0xb110
+#define IDC_KM_KH                   0xb120
+#define IDC_KM_KC1                  0xb121
+#define IDC_KM_KC2                  0xb122
+#define IDC_KM_JEN                  0xb130
+#define IDC_KM_JP                   0xb131
+#define IDC_KM_JPA                  0xb133
+#define IDC_KM_JPB                  0xb134
+#define IDC_KM_JH1                  0xb137
+#define IDC_KM_JH2                  0xb138
+#define IDC_KM_JCALA                0xb139
+#define IDC_KM_JCALB                0xb13a
+#define IDC_KM_KLBL                 0xb140   /* +0..6 */
+#define IDC_KM_K1BOX                0xb148   /* +0..6 */
+#define IDC_KM_K2BOX                0xb158   /* +0..6 */
+#define IDC_KM_JLBL                 0xb160   /* +0..6 */
+#define IDC_KM_JBOX                 0xb168   /* +0..6 */
 
 /* About dialog */
 #define IDD_ABOUT                   434

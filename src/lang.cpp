@@ -26,7 +26,8 @@ const char *lang_strings[LANG_COUNT][STR_COUNT] = {
     "Exit WarpTris!", "Do you really want to exit this fine game?", "~Yes", "~No",
     "Information", "~Ok", "~New",
     "Congratulations!", "You have made a High Score entry!", "Please enter your name:", "~Enter",
-    "Anon", "The help file %s was not found.\nPlease put it in the same folder as WarpTris.exe."
+    "Anon", "The help file %s was not found.\nPlease put it in the same folder as WarpTris.exe.",
+    "~Key Mapping..."
 },
 
 /* ======================= LANG_ES ======================= */
@@ -48,7 +49,8 @@ const char *lang_strings[LANG_COUNT][STR_COUNT] = {
     "Salir de WarpTris!", "Realmente desea salir de este gran juego?", "~Si", "~No",
     "Informacion", "~Ok", "~Nuevo",
     "Felicidades!", "Ha entrado en la tabla de puntuaciones!", "Introduzca su nombre:", "~Entrar",
-    "Anon", "No se encontro el archivo de ayuda %s.\nColoquelo en la misma carpeta que WarpTris.exe."
+    "Anon", "No se encontro el archivo de ayuda %s.\nColoquelo en la misma carpeta que WarpTris.exe.",
+    "Asignacion de ~teclas..."
 },
 
 /* ======================= LANG_NL ======================= */
@@ -70,7 +72,8 @@ const char *lang_strings[LANG_COUNT][STR_COUNT] = {
     "WarpTris afsluiten!", "Wilt u dit mooie spel echt afsluiten?", "~Ja", "~Nee",
     "Informatie", "~Ok", "~Nieuw",
     "Gefeliciteerd!", "U staat in de hoogste scores!", "Voer uw naam in:", "~Invoeren",
-    "Anon", "Het helpbestand %s is niet gevonden.\nPlaats het in dezelfde map als WarpTris.exe."
+    "Anon", "Het helpbestand %s is niet gevonden.\nPlaats het in dezelfde map als WarpTris.exe.",
+    "Toetsen ~toewijzen..."
 },
 
 /* ======================= LANG_DE ======================= */
@@ -92,7 +95,8 @@ const char *lang_strings[LANG_COUNT][STR_COUNT] = {
     "WarpTris beenden!", "Moechten Sie dieses schoene Spiel wirklich beenden?", "~Ja", "~Nein",
     "Information", "~Ok", "~Neu",
     "Gratulation!", "Sie haben einen Platz in der Bestenliste erreicht!", "Bitte geben Sie Ihren Namen ein:", "~Eingabe",
-    "Anon", "Die Hilfedatei %s wurde nicht gefunden.\nBitte legen Sie sie in den Ordner von WarpTris.exe."
+    "Anon", "Die Hilfedatei %s wurde nicht gefunden.\nBitte legen Sie sie in den Ordner von WarpTris.exe.",
+    "~Tastenzuordnung..."
 },
 
 /* ======================= LANG_FR ======================= */
@@ -114,7 +118,8 @@ const char *lang_strings[LANG_COUNT][STR_COUNT] = {
     "Quitter WarpTris!", "Voulez-vous vraiment quitter ce beau jeu?", "~Oui", "~Non",
     "Information", "~Ok", "~Nouveau",
     "Felicitations!", "Vous etes dans les meilleurs scores!", "Entrez votre nom:", "~Entrer",
-    "Anon", "Le fichier d'aide %s est introuvable.\nPlacez-le dans le meme dossier que WarpTris.exe."
+    "Anon", "Le fichier d'aide %s est introuvable.\nPlacez-le dans le meme dossier que WarpTris.exe.",
+    "~Affectation des touches..."
 },
 
 /* ======================= LANG_IT ======================= */
@@ -136,7 +141,8 @@ const char *lang_strings[LANG_COUNT][STR_COUNT] = {
     "Esci da WarpTris!", "Vuoi davvero uscire da questo bel gioco?", "~Si", "~No",
     "Informazione", "~Ok", "~Nuovo",
     "Congratulazioni!", "Sei entrato nella classifica dei record!", "Inserisci il tuo nome:", "~Invio",
-    "Anon", "Il file della guida %s non e' stato trovato.\nMetterlo nella stessa cartella di WarpTris.exe."
+    "Anon", "Il file della guida %s non e' stato trovato.\nMetterlo nella stessa cartella di WarpTris.exe.",
+    "As~segnazione tasti..."
 }
 
 };

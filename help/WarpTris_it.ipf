@@ -113,7 +113,7 @@ Potete muovere il pezzo solo parallelamente al lato verso cui sta cadendo.
 :font facename=Helv size=8x12.
 :p.
 :i2 refid=HowTo.Tasti di WarpTris
-I tasti validi per questo gioco sono&colon.
+I tasti predefiniti di questo gioco sono&colon.
 :parml compact tsize=20 break=none.
 :pt.Spazio
 :pd.Far cadere il pezzo
@@ -130,6 +130,8 @@ I tasti validi per questo gioco sono&colon.
 :pt.P
 :pd.Pausa / riprendi
 :eparml.
+:p.
+Scegli :hp2.Assegnazione tasti...:ehp2. dal menu :hp2.Opzioni:ehp2. per cambiarli. Ogni azione ha un tasto e un tasto alternativo; fai clic su una casella e premi il tasto desiderato (Canc lo cancella). Si possono usare i tasti cursore, Maiusc, Home, Fine, Pag su, Pag giu, le lettere, le cifre e Spazio; un tasto gia in uso viene scambiato con l'altra azione. La pagina :hp2.Joystick:ehp2. configura un joystick&colon. attiva Attiva joystick, scegli Joystick A o B, fai clic su una casella e premi un pulsante del joystick o muovi la leva (Canc cancella) e usa Calibra A / B per impostare il centro della leva. Tastiera e joystick funzionano insieme. Predefinito ripristina le impostazioni standard, OK salva le modifiche e Annulla le scarta.
 :p.
 Le scorciatoie seguenti funzionano in tutta la finestra di WarpTris&colon.
 :parml compact tsize=20 break=none.

@@ -32,10 +32,11 @@
 
 #include "warptris.h" // various defines for the program
 #include "lang.h"     // run time language table
+#include "keymap.h"   // keyboard and joystick mapping
 
 #pragma off(unreferenced)
 static const char bldlevel[] =
-    "@#Paulo Gago da Camara:1.20#@##1## 06 Oct 2026 12:00:00      "
+    "@#Paulo Gago da Camara:1.30#@##1## 12 Oct 2026 12:00:00      "
     "ARCAOS:::0::::@@WarpTris - Tetris like game for OS/2\r\n\x1a";
 #pragma on(unreferenced)
 
@@ -70,6 +71,7 @@ typedef struct {
                 ULONG sound, high, game, next, score, level;
                 RECTL rclParent, rclGame, rclScore, rclNext, rclHigh;
                 ULONG bgrun;
+                KMCFG km;     // key and joystick mapping (keymap.cpp)
                } SETTINGSDATA;
 typedef SETTINGSDATA *PSETTINGSDATA; // structure that contains the various window
                                      // positions, so that the program can
@@ -471,6 +473,7 @@ INT main()
 
  if(pwd->psd->saveonexit)
     SaveSettings(pwd->psd);
+ KmDone();
 
  // Put the frame controls back, so they are destroyed together with the frame
  if(pwd->frameHidden)
@@ -527,7 +530,8 @@ static const MENUTEXT mtAll[] = {  // every translatable menu item (the ones mis
  {IDM_SCOREWINDOW,      STR_MENU_SCOREWIN}, {IDM_GAMEWINDOW,       STR_MENU_GAMEWIN},
  {IDM_ARRANGE,          STR_MENU_ARRANGE},  {IDM_GENERALHELP,      STR_MENU_GENHELP},
  {IDM_HELPINDEX,        STR_MENU_HELPINDEX},{IDM_HELPONHELP,       STR_MENU_HELPONHELP},
- {IDM_ABOUT,            STR_MENU_ABOUT}
+ {IDM_ABOUT,            STR_MENU_ABOUT},
+ {IDM_KEYMAP,           STR_MENU_KEYMAP}
 };
 
 static const USHORT usSubMenus[] = {IDM_SUBMENU_GAME, IDM_SUBMENU_IMPULSE, IDM_SUBMENU_SOUND,
@@ -1500,6 +1504,7 @@ MRESULT EXPENTRY ParentWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
          wd = (PPARENTWINDOWDATA) calloc(1, sizeof(PARENTWINDOWDATA));
          wd->psd = (PSETTINGSDATA) malloc(sizeof(SETTINGSDATA));
          ReadSettings(wd->psd);
+         KmInit(&wd->psd->km);
          current_lang = (INT) wd->psd->current_lang;
          wd->hwndFrame = WinQueryWindow(hwnd, QW_PARENT);
          wd->hwndMenu = WinWindowFromID(wd->hwndFrame, FID_MENU);
@@ -1545,6 +1550,10 @@ MRESULT EXPENTRY ParentWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
         gwd = (PWINDOWDATA) WinQueryWindowPtr(wd->hwndGame, 0);
         switch(SHORT1FROMMP(mp1))
            {
+            case IDM_KEYMAP:
+                KmDialog(hwnd);
+               break;
+
             case IDM_PROPERTIES:
                 WinShowWindow(wd->hwndNote, TRUE);
                 WinSetFocus(HWND_DESKTOP, wd->hwndNote);
@@ -1719,6 +1728,55 @@ MRESULT EXPENTRY GameOverDlgProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
  return((MRESULT) WinDefDlgProc(hwnd, msg, mp1, mp2));// The rest is up to the default dialog procedure
 }
 
+VOID GameAction(HWND hwnd, PWINDOWDATA wd, INT act)
+// Runs a game action (from the keyboard or the joystick, see Key Mapping)
+{
+ if(act < 0)
+    return;
+ if(act == KM_PAUSE)
+    {
+     if(wd->gamePaused && wd->gamePlaying)
+        WinPostMsg(hwnd, WM_RESUMEGAME, 0, 0);// the game was paused, in this case: resume the game
+     else if(wd->gamePlaying)
+        WinPostMsg(hwnd, WM_PAUSEGAME, 0, 0); // else pause the game
+    }
+ if(wd->hasFocus && !wd->gamePaused && wd->gamePlaying)
+    switch(act) // handle the game actions
+       {
+        case KM_ROTATE:
+            wd->figure->Rotate(*(wd->board));
+           break;
+
+        case KM_LEFT:
+            if(wd->direction == UP || wd->direction == DOWN)
+              wd->figure->Move(LEFT, *(wd->board));
+           break;
+
+        case KM_RIGHT:
+            if(wd->direction == UP || wd->direction == DOWN)
+              wd->figure->Move(RIGHT, *(wd->board));
+           break;
+
+        case KM_UP:
+             if(wd->direction == LEFT || wd->direction == RIGHT)
+               wd->figure->Move(UP, *(wd->board));
+           break;
+
+        case KM_DOWN:
+            if(wd->direction == LEFT || wd->direction == RIGHT)
+              wd->figure->Move(DOWN, *(wd->board));
+           break;
+
+        case KM_DROP:
+            wd->figure->Fall(wd->direction, *(wd->board));
+            WinPostMsg(hwnd, WM_DROPED, 0, 0);
+           break;
+
+        default:
+           break;
+       }
+}
+
 MRESULT EXPENTRY MainWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
 {
  INT i, linesRemoved = 0;
@@ -1763,6 +1821,7 @@ MRESULT EXPENTRY MainWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
                 break;
             }
          wd->ulTimerID = WinStartTimer(WinQueryAnchorBlock(hwnd), hwnd, TID_TIMER, ulTimerDelay);
+         WinStartTimer(WinQueryAnchorBlock(hwnd), hwnd, TID_JOY, 40); // joystick poll
          WinSetWindowPtr(hwnd, 0, wd);
          owd = (POBJECTWINDOWDATA) malloc(sizeof(OBJECTWINDOWDATA));
          owd->hwndGame = hwnd;
@@ -1828,58 +1887,10 @@ MRESULT EXPENTRY MainWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
        fsKey = SHORT1FROMMP(mp1);
        if(fsKey & KC_KEYUP) // only react to the key press, not to the release
           break;
-       key = 0;
-       if(fsKey & KC_CHAR)
-          key = SHORT1FROMMP(mp2);
-       else if(fsKey & KC_VIRTUALKEY)
-          switch(SHORT2FROMMP(mp2)) // the cursor keys do the same as the keypad keys
-             {
-              case VK_LEFT:  key = '4'; break;
-              case VK_RIGHT: key = '6'; break;
-              case VK_UP:    key = '8'; break;
-              case VK_DOWN:  key = '2'; break;
-              case VK_SHIFT: if(!(fsKey & KC_PREVDOWN)) key = '5'; break; // both Shift keys rotate
-              default:       break;
-             }
-       if((key == 'p' || key=='P') && wd->gamePaused && wd->gamePlaying)
-          WinPostMsg(hwnd, WM_RESUMEGAME, 0, 0);// P was pressed and the game was paused, in this case: resume the game
-       else if((key == 'p' || key=='P') && wd->gamePlaying)
-          WinPostMsg(hwnd, WM_PAUSEGAME, 0, 0); // else pause the game
-       if(wd->hasFocus && !wd->gamePaused && wd->gamePlaying)
-           switch(key) // handle the game keys
-              {
-               case '5':
-                   wd->figure->Rotate(*(wd->board));
-                  break;
-
-               case '4':
-                   if(wd->direction == UP || wd->direction == DOWN)
-                     wd->figure->Move(LEFT, *(wd->board));
-                  break;
-
-               case '6':
-                   if(wd->direction == UP || wd->direction == DOWN)
-                     wd->figure->Move(RIGHT, *(wd->board));
-                  break;
-
-               case '8':
-                    if(wd->direction == LEFT || wd->direction == RIGHT)
-                      wd->figure->Move(UP, *(wd->board));
-                  break;
-
-               case '2':
-                  if(wd->direction == LEFT || wd->direction == RIGHT)
-                    wd->figure->Move(DOWN, *(wd->board));
-                  break;
-
-               case ' ':
-                   wd->figure->Fall(wd->direction, *(wd->board));
-                   WinPostMsg(hwnd, WM_DROPED, 0, 0);
-                  break;
-
-               default:
-                  break;
-              }
+       if((fsKey & KC_VIRTUALKEY) && SHORT2FROMMP(mp2) == VK_SHIFT && (fsKey & KC_PREVDOWN))
+          break; // Shift does not repeat
+       // the keys are the ones of Options - Key Mapping
+       GameAction(hwnd, wd, KmKeyAction(fsKey, SHORT1FROMMP(mp2), SHORT2FROMMP(mp2)));
        break;
 
     case WM_CHANGELEVEL: // Change the speed to the delay stored in mp1
@@ -1944,6 +1955,18 @@ MRESULT EXPENTRY MainWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
        break;
 
      case WM_TIMER: // The timer message that, makes pieces move
+           if(SHORT1FROMMP(mp1) == TID_JOY) // joystick poll
+              {
+               BOOL fire[KM_NACT];
+
+               wd = (PWINDOWDATA) WinQueryWindowPtr(hwnd, 0);
+               KmJoyTick(fire);
+               if(wd->hasFocus)
+                  for(i=0; i<KM_NACT; ++i)
+                     if(fire[i])
+                        GameAction(hwnd, wd, i);
+               break;
+              }
            owd = (POBJECTWINDOWDATA) WinQueryWindowPtr(hwnd, 8);
            wd = (PWINDOWDATA) WinQueryWindowPtr(hwnd, 0);
            // The game stops while the window has no focus, unless Background Run is on
@@ -2040,6 +2063,7 @@ MRESULT EXPENTRY MainWindowProc(HWND hwnd, ULONG msg, MPARAM mp1, MPARAM mp2)
          WinReleasePS(wd->hps); // Release the Presentation Space
          WinStopTimer(WinQueryAnchorBlock(hwnd), hwnd, wd->ulTimerID);
           // stop the timer
+         WinStopTimer(WinQueryAnchorBlock(hwnd), hwnd, TID_JOY);
          for(i=0; i<=6; ++i)
           GpiDeleteBitmap(wd->hbmp[i]); // Delete the bitmaps from memory
          if(wd->board!=NULL)

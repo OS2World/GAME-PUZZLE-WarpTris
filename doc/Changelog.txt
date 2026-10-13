@@ -1,6 +1,19 @@
 WarpTris - Changelog
 ====================
 
+1.30 (2026-10-12)
+- New Options - Key Mapping... dialog (also in the context menus) with a
+  Keyboard page and a Joystick page. Keyboard: a key and an alternate key for
+  each of the 7 actions (move left / right / up / down, rotate, drop, pause);
+  cursor keys, Shift, Home, End, PgUp, PgDn, letters, digits and Space. The
+  defaults are the old fixed keys. Joystick: GAME$ driver, stick A or B, a
+  button or stick direction per action, calibration, repeat while held.
+  Default, OK and Cancel buttons; translated in all six languages
+- The key and joystick mapping is saved in WarpTris.cfg (older WarpTris.cfg
+  files keep working)
+- Online help updated in all six languages
+- About dialog, BLDLEVEL and documentation updated to 1.30
+
 1.20 (2026-10-06)
 - Ported the build to Open Watcom C++ 2.0 (wmake, wpp386, wlink, wrc, wipfc)
 - License changed to GNU GPL v3

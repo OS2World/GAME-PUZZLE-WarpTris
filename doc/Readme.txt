@@ -1,4 +1,4 @@
-WarpTris for OS/2 - Version 1.20
+WarpTris for OS/2 - Version 1.30
 ================================
 
 OVERVIEW
@@ -33,6 +33,12 @@ Formula 1 and WARP! (fast).
 
 CONTROLS
 --------
+These are the default keys. Options > Key Mapping... changes them (every
+action has a key and an alternate key) and sets up a joystick.
+
+These are the default keys. Options > Key Mapping... changes them (every
+action has a key and an alternate key) and sets up a joystick.
+
   Space                     Drop the piece
   Keypad 4 / Left arrow     Move left
   Keypad 6 / Right arrow    Move right
@@ -43,6 +49,17 @@ CONTROLS
 
   Left and right work while the piece falls up or down, up and down work while
   it falls to the left or to the right. NUMLOCK must be active to use the keypad.
+
+  Key Mapping dialog (Options > Key Mapping...):
+    Keyboard   Click a box and press the key (Delete clears it). Cursor keys,
+               Shift, Home, End, PgUp, PgDn, letters, digits and Space can be
+               used; a key already in use is swapped with the other action.
+    Joystick   Enable Joystick, choose stick A or B, click a box and press a
+               stick button or move the stick, Calibrate A / B. By default
+               the stick moves the piece, Button 1 rotates, Button 2 drops and
+               Button 3 pauses. Keyboard and joystick work together.
+    Default restores the standard settings, OK saves, Cancel discards.
+  The mapping is saved in WarpTris.cfg (Save settings on exit).
 
 KEYBOARD SHORTCUTS
 ------------------
@@ -59,7 +76,7 @@ KEYBOARD SHORTCUTS
 MENUS
 -----
   Game      New, Pause Game, Quit Game, Exit
-  Options   Properties, Impulse (Donkey, Formula 1, WARP!), Sound (On, Off),
+  Options   Properties, Key Mapping, Impulse (Donkey, Formula 1, WARP!), Sound (On, Off),
             Detail (High, Medium, Low), Language, Background Run,
             Frame Controls, Save settings on exit
   Windows   High Scores, Next, Score, Game, Arrange
